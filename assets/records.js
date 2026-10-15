@@ -10,14 +10,16 @@
 //   credit:   your role codes, shown after the title, e.g. "P/R/M"
 //             P = Produced, R = Recorded, M = Mixed, D = Drummed, Ma = Mastered
 //             (the key above the grid is in index.html)
-//   link:     where the cover goes when clicked (Bandcamp, Spotify...).
-//             Leave "" for no link.
+//   bandcamp: Bandcamp album ID. Clicking the cover opens a Bandcamp player.
+//             (Claude can look these up for you.)
+//   link:     if there's no bandcamp ID, where the cover goes when clicked
+//             (Spotify, a label page...). Leave "" for no link.
 //   notes:    your old Squarespace write-up, kept for reference.
 //             Not shown on the site.
 // ============================================================
 
 const RECORDS = [
-  { artist: "Remember Sports", title: "The Refrigerator", year: "2026", cover: "remember-sports-the-refrigerator-2026.jpg", credit: "P/R/M", link: "" },
+  { artist: "Remember Sports", title: "The Refrigerator", year: "2026", cover: "remember-sports-the-refrigerator-2026.jpg", credit: "P/R/M", link: "", bandcamp: "526053519" },
   { artist: "youbet", title: "youbet", year: "2026", cover: "youbet-youbet-2026.jpg", credit: "P/R/M", link: "" },
   { artist: "Gemma", title: "Be About It", year: "2026", cover: "gemma-be-about-it-2026.jpg", credit: "M", link: "" },
   { artist: "Ava Luna", title: "Ava Luna", year: "2025", cover: "ava-luna-ava-luna-2025.jpg", credit: "D", link: "" },
@@ -148,14 +150,54 @@ const RECORDS = [
   const grid = document.getElementById("records");
   if (!grid) return;
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  grid.innerHTML = RECORDS.map(r => {
-    const tag = r.link ? "a" : "div";
-    const attrs = r.link ? ` href="${esc(r.link)}" target="_blank" rel="noopener"` : "";
+
+  grid.innerHTML = RECORDS.map((r, i) => {
+    let tag = "div", attrs = "";
+    if (r.bandcamp) { tag = "button"; attrs = ` type="button" data-play="${i}" aria-label="Play ${esc(r.artist)}, ${esc(r.title)}"`; }
+    else if (r.link) { tag = "a"; attrs = ` href="${esc(r.link)}" target="_blank" rel="noopener"`; }
     return `
-    <${tag} class="record"${attrs}>
-      <img src="/images/covers/${esc(r.cover)}" alt="${esc(r.artist)}, ${esc(r.title)}" loading="lazy">
-      <p class="artist">${esc(r.artist)}</p>
-      <p class="title">${esc(r.title)} <span class="year">(${esc(r.year)})</span>${r.credit ? ` <span class="credit">(${esc(r.credit)})</span>` : ""}</p>
+    <${tag} class="record${r.bandcamp ? " playable" : ""}"${attrs}>
+      <span class="cover-wrap">
+        <img src="/images/covers/${esc(r.cover)}" alt="${esc(r.artist)}, ${esc(r.title)}" loading="lazy">
+        ${r.bandcamp ? '<span class="play-badge" aria-hidden="true"></span>' : ""}
+      </span>
+      <span class="artist">${esc(r.artist)}</span>
+      <span class="title">${esc(r.title)} <span class="year">(${esc(r.year)})</span>${r.credit ? ` <span class="credit">(${esc(r.credit)})</span>` : ""}</span>
     </${tag}>`;
   }).join("");
+
+  // Bandcamp pop-up player
+  const modal = document.createElement("div");
+  modal.className = "player-modal";
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="player-box" role="dialog" aria-modal="true" aria-label="Album player">
+      <button type="button" class="player-close" aria-label="Close player">&times;</button>
+      <div class="player-frame"></div>
+    </div>`;
+  document.body.appendChild(modal);
+  const frame = modal.querySelector(".player-frame");
+  let lastFocus = null;
+
+  function open(r) {
+    lastFocus = document.activeElement;
+    frame.innerHTML = `<iframe title="${esc(r.artist)}, ${esc(r.title)} on Bandcamp"
+      src="https://bandcamp.com/EmbeddedPlayer/album=${encodeURIComponent(r.bandcamp)}/size=large/bgcol=ffffff/linkcol=3a8a86/tracklist=true/artwork=small/transparent=true/"
+      seamless></iframe>`;
+    modal.hidden = false;
+    document.body.classList.add("modal-open");
+    modal.querySelector(".player-close").focus();
+  }
+  function close() {
+    modal.hidden = true;
+    frame.innerHTML = "";              // stops the music
+    document.body.classList.remove("modal-open");
+    if (lastFocus) lastFocus.focus();
+  }
+  grid.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-play]");
+    if (b) open(RECORDS[+b.dataset.play]);
+  });
+  modal.addEventListener("click", (e) => { if (e.target === modal || e.target.closest(".player-close")) close(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) close(); });
 })();
