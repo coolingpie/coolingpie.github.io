@@ -1,0 +1,31 @@
+#!/bin/bash
+# Downloads covers for records added Oct 15. Skips covers you already have.
+cd "$(dirname "$0")"
+mkdir -p images/covers
+n=0; fail=0
+get() { [ -s "$2" ] && { n=$((n+1)); return; }; if curl -fsSL -A "Mozilla/5.0" "$1" -o "$2"; then n=$((n+1)); else echo "Could not download: $2"; fail=$((fail+1)); fi; }
+get "https://f4.bcbits.com/img/a2132347620_16.jpg" "images/covers/youbet-deny-2025.jpg"
+get "https://f4.bcbits.com/img/a0557849506_16.jpg" "images/covers/trace-mountains-sick-of-myself-2024.jpg"
+get "https://f4.bcbits.com/img/a0351239483_16.jpg" "images/covers/youbet-way-to-be-2024.jpg"
+get "https://i.discogs.com/eF49VQr4F12XeoQfE9CtqBrmzotFXJy5MSTK8NuTXyA/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5NTQ5/MTcwLTE3MDU3ODE3/MjktOTIxMS5qcGVn.jpeg" "images/covers/dolly-interloper-2024.jpg"
+get "https://f4.bcbits.com/img/a1093738871_16.jpg" "images/covers/beeef-somebody-s-favorite-2024.jpg"
+get "https://f4.bcbits.com/img/a1503437884_16.jpg" "images/covers/katie-von-schleicher-a-little-touch-of-schleicher-in-the-night-2023.jpg"
+get "https://f4.bcbits.com/img/a3507133493_16.jpg" "images/covers/fog-lake-midnight-society-2023.jpg"
+get "https://f4.bcbits.com/img/a3054361939_16.jpg" "images/covers/mr-twin-sister-al-mundo-azul-2021.jpg"
+get "https://f4.bcbits.com/img/a2098627659_16.jpg" "images/covers/fog-lake-tragedy-reel-2021.jpg"
+get "https://f4.bcbits.com/img/a0318265802_16.jpg" "images/covers/emily-reo-one-eye-on-the-sky-2020.jpg"
+get "https://f4.bcbits.com/img/a3781776587_16.jpg" "images/covers/laser-background-evergreen-legend-2020.jpg"
+get "https://f4.bcbits.com/img/a0012461047_16.jpg" "images/covers/radical-dads-paved-mountain-2020.jpg"
+get "https://f4.bcbits.com/img/a3717098033_16.jpg" "images/covers/moon-revenge-phrases-that-remain-2018.jpg"
+get "https://f4.bcbits.com/img/a0007417574_16.jpg" "images/covers/shark-abilene-2017.jpg"
+get "https://f4.bcbits.com/img/a2714858523_16.jpg" "images/covers/cassandra-jenkins-play-till-you-win-2017.jpg"
+get "https://f4.bcbits.com/img/a0022335993_16.jpg" "images/covers/dent-may-across-the-multiverse-2017.jpg"
+get "https://i.discogs.com/p4U0GXJupfXGN_7JTZsUSrFQ9MM6QirrZZ1W1xhvHqo/rs:fit/g:sm/q:90/h:350/w:350/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg3ODk4/MzgtMTQ2ODgxMDY0/NC0xMDM2LmpwZWc.jpeg" "images/covers/heliotropes-over-there-that-way-2016.jpg"
+get "https://f4.bcbits.com/img/a0329821592_16.jpg" "images/covers/ava-luna-takamatsu-station-2015.jpg"
+get "https://f4.bcbits.com/img/a0405742677_16.jpg" "images/covers/radical-dads-universal-coolers-2015.jpg"
+get "https://f4.bcbits.com/img/a1322570810_16.jpg" "images/covers/radical-dads-cassette-brain-2014.jpg"
+get "https://f4.bcbits.com/img/a3016667819_16.jpg" "images/covers/grass-is-green-vacation-vinny-2014.jpg"
+get "https://i.discogs.com/vC2ZiZL2DcwNsvHTwtOTfneuoqWC8L--KoIbG4psvnw/rs:fit/g:sm/q:90/h:350/w:350/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTYxNzY3/MDItMTQxMjk3NDE1/OC00MTE3LmpwZWc.jpeg" "images/covers/ovlov-not-the-same-without-you-2010.jpg"
+get "https://f4.bcbits.com/img/a2304702040_16.jpg" "images/covers/lily-konigsberg-free-byrd-2026.jpg"
+get "https://f4.bcbits.com/img/a4072763295_16.jpg" "images/covers/fog-lake-hollowbody-2026.jpg"
+echo "Done: $n covers downloaded, $fail failed."
