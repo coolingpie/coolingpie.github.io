@@ -3,11 +3,15 @@
 // Edit the nav or footer here once and it updates everywhere.
 // ============================================================
 
+// One line under the logo on every page. Leave "" to hide it.
+const TAGLINE = "Producer · Mixer · Drummer · Composer";
+
 const NAV = [
   { label: "Production Discography", href: "/" },
   { label: "Composition",            href: "/composition.html" },
   { label: "Drums To Go™",      href: "/drums.html" },
-  { label: "Me",                     href: "/me.html" },
+  // Hidden for now. Delete the two slashes at the start of the next line to show it again.
+  // { label: "Me",                     href: "/me.html" },
   { label: "Blog",                   href: "https://coolingpie.substack.com/" },
   { label: "Free Stuff",             href: "/free.html" },
 ];
@@ -31,6 +35,7 @@ const FOOTER_LINKS = [
         <img class="logo" src="/images/logo.jpg" alt="Julian Fader"
              onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'JULIAN FADER'}))">
       </a>
+      ${TAGLINE ? `<p class="tagline">${TAGLINE}</p>` : ""}
       <nav class="site-nav" aria-label="Main">
         <ul>
           ${NAV.map(n => `<li><a href="${n.href}"${n.href.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}${isCurrent(n.href) ? ' aria-current="page"' : ""}>${n.label}</a></li>`).join("")}
