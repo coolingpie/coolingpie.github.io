@@ -173,3 +173,37 @@ body.modal-open { overflow: hidden; }
 /* ============ Role codes ============ */
 .credit { color: var(--accent); font-weight: 500; letter-spacing: .03em; font-style: italic; }
 .credit-key { margin: 0 0 24px; font-size: clamp(8px, 2.4vw, .9rem); color: var(--muted); white-space: nowrap; font-style: italic; text-align: center; font-weight: 700; }
+
+/* ============ Drums To Go ============ */
+.drums { max-width: 960px; margin: 0 auto; }
+.drums-intro { max-width: 720px; margin: 0 auto 40px; text-align: center; }
+.drums-intro .lede { margin-bottom: 24px; }
+.drums-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+.drums-player iframe { height: 420px; }
+.drums-photo { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; background: #eee; }
+.drums-cols {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 40px;
+  margin: 64px 0; padding-top: 48px; border-top: 1px solid var(--line);
+}
+.drums-block h2 { margin: 0 0 8px; font-size: 1rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); }
+.drums-block p { margin: 0; }
+.drums-photo-2 { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; background: #eee; }
+.book { background: #f4f7f6; border-radius: 6px; padding: 40px 32px; max-width: 720px; margin: 0 auto; }
+.book h2 { margin: 0 0 24px; text-align: center; font-size: 1.2rem; }
+.book-form { display: grid; gap: 18px; }
+.book-form[hidden] { display: none; }
+.book-form label { display: grid; gap: 6px; font-weight: 500; font-size: .95rem; }
+.book-form .optional { font-weight: 400; color: var(--muted); }
+.book-form input, .book-form textarea {
+  font: inherit; font-weight: 400; padding: 10px 12px; border: 1px solid #cfd8d6; border-radius: 4px; background: #fff; color: var(--text);
+}
+.book-form input:focus, .book-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.book-form .button { justify-self: start; border: 0; font: inherit; font-weight: 500; cursor: pointer; padding: 12px 28px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.honey { position: absolute; left: -9999px; }
+.form-sent { text-align: center; font-size: 1.1rem; color: var(--accent); margin: 0; }
+@media (max-width: 760px) {
+  .drums-top, .drums-cols, .field-row { grid-template-columns: 1fr; }
+  .drums-player iframe { height: 400px; }
+  .book { padding: 28px 18px; }
+}

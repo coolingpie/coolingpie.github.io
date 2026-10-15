@@ -15,27 +15,67 @@
 <header id="site-header"></header>
 <main>
 
-  <div class="narrow">
-    <h1>Drums To Go!</h1>
-    <p class="lede">One of the most popular services I offer is &ldquo;Drums To Go&rdquo;. Remote drum recording is easier than ever — just send me your music and I will add live drum kit/percussion to bring your songs to life. Guaranteed to sound better than the built in Logic drummers!</p>
-    <p>I have 20 years of experience playing drums in the studio and I work out of a beautiful studio in Brooklyn called <a href="https://www.honeyjarbrooklyn.com/" target="_blank" rel="noopener">Honey Jar</a>. I have many bass drums, snare drums, and cymbals to fit any sound you&rsquo;re hearing in your head. I also love to let my imagination run wild, so if you don&rsquo;t know what you want in terms of sound or performance, I&rsquo;m down to give my opinion and try various options out for you.</p>
-    <p>All drums are immaculately tracked with Neumann, Shure, Electrovoice, Cascade, AKG, and Beyer Dynamic mics through a 1970s Studer 189 Mk II 28-Input Mix Console, along with API, OSA Avalon, and Manley preamps. I&rsquo;m always game to run a room mic though an 1176 or LA2A compressor — just ask. The point of all the technical stuff — it&rsquo;s going to sound good.</p>
-    <p>I deliver full res WAV or AIFF stems of all of the takes I do on your song — typically I&rsquo;ll use 10-15 mics in various positions so that you&rsquo;ve got the full range of options when you go to mix.</p>
-    <p><strong>Get in touch and get yourself some Drums To Go!</strong></p>
-    <p><a class="button" href="mailto:julbucket@gmail.com?subject=Drums%20To%20Go">Email me</a></p>
+  <section class="drums">
+    <header class="drums-intro">
+      <h1>Drums To Go!</h1>
+      <p class="lede">One of the most popular services I offer is &ldquo;Drums To Go&rdquo;. Remote drum recording is easier than ever — just send me your music and I will add live drum kit/percussion to bring your songs to life. Guaranteed to sound better than the built in Logic drummers!</p>
+      <p><a class="button" href="#book">Book a session</a></p>
+    </header>
 
-    <div class="photo-pair">
-      <img src="/images/drums-1.jpg" alt="Drum kit set up at Honey Jar" loading="lazy">
-      <img src="/images/drums-2.png" alt="Drum session" loading="lazy">
+    <!-- Top: listen + photo -->
+    <div class="drums-top">
+      <div class="embed drums-player">
+        <iframe src="https://www.buymusic.club/embed/julian-fader-drums-by-julian" title="Drums by Julian" loading="lazy"></iframe>
+      </div>
+      <img class="drums-photo" src="/images/drums-1.jpg" alt="Drum kit set up at Honey Jar">
     </div>
 
-    <h2>Hear some</h2>
-    <div class="embed">
-      <iframe src="https://www.buymusic.club/embed/julian-fader-drums-by-julian" title="Drums by Julian" loading="lazy"></iframe>
+    <div class="drums-cols">
+      <div class="drums-block">
+        <h2>The room</h2>
+        <p>I have 20 years of experience playing drums in the studio and I work out of a beautiful studio in Brooklyn called <a href="https://www.honeyjarbrooklyn.com/" target="_blank" rel="noopener">Honey Jar</a>. I have many bass drums, snare drums, and cymbals to fit any sound you&rsquo;re hearing in your head. I also love to let my imagination run wild, so if you don&rsquo;t know what you want in terms of sound or performance, I&rsquo;m down to give my opinion and try various options out for you.</p>
+      </div>
+      <div class="drums-block">
+        <h2>The gear</h2>
+        <p>All drums are immaculately tracked with Neumann, Shure, Electrovoice, Cascade, AKG, and Beyer Dynamic mics through a 1970s Studer 189 Mk II 28-Input Mix Console, along with API, OSA Avalon, and Manley preamps. I&rsquo;m always game to run a room mic though an 1176 or LA2A compressor — just ask. The point of all the technical stuff — it&rsquo;s going to sound good.</p>
+      </div>
+      <div class="drums-block">
+        <h2>What you get</h2>
+        <p>I deliver full res WAV or AIFF stems of all of the takes I do on your song — typically I&rsquo;ll use 10-15 mics in various positions so that you&rsquo;ve got the full range of options when you go to mix.</p>
+      </div>
+      <img class="drums-photo-2" src="/images/drums-2.png" alt="Drum session at Honey Jar" loading="lazy">
     </div>
-  </div>
+
+    <!-- Booking form: sends to julbucket@gmail.com through FormSubmit (formsubmit.co) -->
+    <div class="book" id="book">
+      <h2>Get in touch and get yourself some Drums To Go!</h2>
+      <p class="form-sent" id="form-sent" hidden>Thanks! Your message is on its way. I&rsquo;ll get back to you soon.</p>
+      <form class="book-form" action="https://formsubmit.co/julbucket@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Drums To Go inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://julianfader.space/drums.html?sent=1#book">
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field-row">
+          <label><span>Name</span> <input type="text" name="name" required autocomplete="name"></label>
+          <label><span>Email</span> <input type="email" name="email" required autocomplete="email"></label>
+        </div>
+        <label><span>Link to your song <span class="optional">(optional)</span></span> <input type="url" name="song_link" placeholder="Dropbox, Drive, SoundCloud..."></label>
+        <label><span>Tell me about it</span> <textarea name="message" rows="5" required placeholder="How many songs, the vibe you're after, your timeline..."></textarea></label>
+        <button class="button" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
 </main>
 <footer id="site-footer"></footer>
 <script src="/assets/site.js"></script>
+<script>
+  // Show a thank-you note after the form sends you back here
+  if (new URLSearchParams(location.search).has("sent")) {
+    document.getElementById("form-sent").hidden = false;
+    document.querySelector(".book-form").hidden = true;
+  }
+  // _next must point at this site's own address, so it also works on coolingpie.github.io
+  document.querySelector('input[name="_next"]').value = location.origin + "/drums.html?sent=1#book";
+</script>
 </body>
 </html>

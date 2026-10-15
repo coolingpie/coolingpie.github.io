@@ -13,7 +13,6 @@ const NAV = [
 ];
 
 const FOOTER_LINKS = [
-  { label: "Email",     href: "mailto:julbucket@gmail.com" },
   { label: "Instagram", href: "https://www.instagram.com/umareyougonnafinishthat/" },
   { label: "Twitter",   href: "https://twitter.com/coolingpie/" },
   { label: "Substack",  href: "https://coolingpie.substack.com/" },
