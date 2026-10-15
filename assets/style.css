@@ -219,3 +219,19 @@ body.modal-open { overflow: hidden; }
   .drums-player iframe { height: 400px; }
   .book { padding: 28px 18px; }
 }
+
+/* ============ Tighter top so the record grid shows on load ============ */
+.logo { width: 170px; }
+.site-header { padding-top: 14px; }
+.site-nav ul { margin-top: 16px; }
+main { padding-top: 24px; }
+.embed iframe { height: 260px; }
+.drums-player iframe { height: 420px; }
+main hr { margin: 24px 0; }
+.credit-key { margin-bottom: 16px; }
+@media (min-width: 761px) {
+  .hero { max-width: none; grid-template-columns: auto 1fr auto; gap: 24px; }
+  .hero .circle { width: 220px; }
+  .hero .embed { padding: 0 32px; }
+}
+@media (max-width: 760px) { .drums-player iframe { height: 400px; } }
