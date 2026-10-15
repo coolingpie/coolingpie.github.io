@@ -7,7 +7,7 @@
 const TAGLINE = "Producer · Mixer · Drummer · Composer";
 
 const NAV = [
-  { label: "Production Discography", href: "/" },
+  { label: "Discography", href: "/" },
   { label: "Composition",            href: "/composition.html" },
   { label: "Drums To Go™",      href: "/drums.html" },
   // Hidden for now. Delete the two slashes at the start of the next line to show it again.
