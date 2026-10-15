@@ -155,7 +155,7 @@ const RECORDS = [
     <${tag} class="record"${attrs}>
       <img src="/images/covers/${esc(r.cover)}" alt="${esc(r.artist)}, ${esc(r.title)}" loading="lazy">
       <p class="artist">${esc(r.artist)}</p>
-      <p class="title">${esc(r.title)}${r.credit ? ` <span class="credit">(${esc(r.credit)})</span>` : ""} <span class="year">(${esc(r.year)})</span></p>
+      <p class="title">${esc(r.title)} <span class="year">(${esc(r.year)})</span>${r.credit ? ` <span class="credit">(${esc(r.credit)})</span>` : ""}</p>
     </${tag}>`;
   }).join("");
 })();
