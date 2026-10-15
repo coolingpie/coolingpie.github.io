@@ -27,6 +27,7 @@ const RECORDS = [
   { artist: "Lily Konigsberg", title: "Free Byrd", year: "2026", cover: "lily-konigsberg-free-byrd-2026.jpg", credit: "M", link: "", bandcamp: "t1141225862" },
   { artist: "Fog Lake", title: "Hollowbody", year: "2026", cover: "fog-lake-hollowbody-2026.jpg", credit: "D", link: "", bandcamp: "a278097121" },
   { artist: "Ava Mirzadegan", title: "For the Light", year: "2026", cover: "ava-mirzadegan-for-the-light-2026.jpg", credit: "P/R/M", link: "", bandcamp: "a2400680330" },
+  { artist: "Beck Zegans", title: "Engraving of Armor", year: "2026", cover: "beck-zegans-engraving-of-armor-2026.jpg", credit: "P/M/D", link: "", bandcamp: "a3723593184" },
   { artist: "Ava Luna", title: "Ava Luna", year: "2025", cover: "ava-luna-ava-luna-2025.jpg", credit: "D", link: "", bandcamp: "a546441070" },
   { artist: "Lane", title: "Receiver", year: "2025", cover: "lane-receiver-2025.jpg", credit: "M/D", link: "", bandcamp: "a2040369710" },
   { artist: "People Person Puzzle Tree", title: "Live In The Emerald Necklace", year: "2025", cover: "people-person-puzzle-tree-live-in-the-emerald-necklace-2025.jpg", credit: "R/M", link: "", bandcamp: "a1303853311" },

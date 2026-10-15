@@ -59,4 +59,5 @@ get "https://f4.bcbits.com/img/a0406946207_16.jpg" "images/covers/2nd-grade-girl
 get "https://f4.bcbits.com/img/a2616105897_16.jpg" "images/covers/arminda-k-time-and-a-feeling-2024.jpg"
 get "https://f4.bcbits.com/img/a2462229226_16.jpg" "images/covers/meadows-the-birds-took-you-away-2024.jpg"
 get "https://f4.bcbits.com/img/a2089502600_16.jpg" "images/covers/wae-glimmer-2017.jpg"
+get "https://f4.bcbits.com/img/a2360735715_16.jpg" "images/covers/beck-zegans-engraving-of-armor-2026.jpg"
 echo "Done: $n covers downloaded, $fail failed."
