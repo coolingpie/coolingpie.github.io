@@ -55,4 +55,8 @@ get "https://f4.bcbits.com/img/a2560838314_16.jpg" "images/covers/conveyor-ani-m
 get "https://f4.bcbits.com/img/a3891698606_16.jpg" "images/covers/death-ray-architect-basic-ep-2014.jpg"
 get "https://f4.bcbits.com/img/a3837070512_16.jpg" "images/covers/radical-dads-creature-out-2013.jpg"
 get "https://f4.bcbits.com/img/a0825727131_16.jpg" "images/covers/woodpainting-woodpainting-2020.jpg"
+get "https://f4.bcbits.com/img/a0406946207_16.jpg" "images/covers/2nd-grade-girls-and-boys-2026.jpg"
+get "https://f4.bcbits.com/img/a2616105897_16.jpg" "images/covers/arminda-k-time-and-a-feeling-2024.jpg"
+get "https://f4.bcbits.com/img/a2462229226_16.jpg" "images/covers/meadows-the-birds-took-you-away-2024.jpg"
+get "https://f4.bcbits.com/img/a2089502600_16.jpg" "images/covers/wae-glimmer-2017.jpg"
 echo "Done: $n covers downloaded, $fail failed."

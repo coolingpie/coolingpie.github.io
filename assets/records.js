@@ -20,6 +20,7 @@
 // ============================================================
 
 const RECORDS = [
+  { artist: "2nd Grade", title: "Girls and Boys", year: "2026", cover: "2nd-grade-girls-and-boys-2026.jpg", credit: "M", link: "", bandcamp: "a1868775891" },
   { artist: "Remember Sports", title: "The Refrigerator", year: "2026", cover: "remember-sports-the-refrigerator-2026.jpg", credit: "P/R/M", link: "", bandcamp: "a526053519" },
   { artist: "youbet", title: "youbet", year: "2026", cover: "youbet-youbet-2026.jpg", credit: "P/R/M", link: "", bandcamp: "a1682366158" },
   { artist: "Gemma", title: "Be About It", year: "2026", cover: "gemma-be-about-it-2026.jpg", credit: "M", link: "", bandcamp: "a3326081862" },
@@ -39,6 +40,8 @@ const RECORDS = [
   { artist: "youbet", title: "Way To Be", year: "2024", cover: "youbet-way-to-be-2024.jpg", credit: "R/D", link: "", bandcamp: "a3571708630" },
   { artist: "Dolly", title: "Interloper", year: "2024", cover: "dolly-interloper-2024.jpg", credit: "M/D", link: "" },
   { artist: "Beeef", title: "Somebody's Favorite", year: "2024", cover: "beeef-somebody-s-favorite-2024.jpg", credit: "M", link: "", bandcamp: "a2137704288" },
+  { artist: "Arminda K", title: "Time and a Feeling", year: "2024", cover: "arminda-k-time-and-a-feeling-2024.jpg", credit: "D", link: "", bandcamp: "a282105997" },
+  { artist: "meadows", title: "The Birds Took You Away", year: "2024", cover: "meadows-the-birds-took-you-away-2024.jpg", credit: "D", link: "", bandcamp: "a1738027512" },
   { artist: "Dolly", title: "Process", year: "2023", cover: "dolly-process-2023.jpg", credit: "P/M/D", link: "",
     notes: "Drums and production and mix by Julian and Carlos @ Honey Jar" },
   { artist: "youbet", title: "Carsick", year: "2023", cover: "youbet-carsick-2023.jpg", credit: "R/D", link: "", bandcamp: "t3649134018",
@@ -129,6 +132,7 @@ const RECORDS = [
   { artist: "Cassandra Jenkins", title: "Play Till You Win", year: "2017", cover: "cassandra-jenkins-play-till-you-win-2017.jpg", credit: "D", link: "", bandcamp: "a3531278563" },
   { artist: "Dent May", title: "Across The Multiverse", year: "2017", cover: "dent-may-across-the-multiverse-2017.jpg", credit: "R", link: "", bandcamp: "a2410576664" },
   { artist: "Secret Crush", title: "Double Life", year: "2017", cover: "secret-crush-double-life-2017.jpg", credit: "R", link: "", bandcamp: "a3981556599" },
+  { artist: "Wae", title: "Glimmer", year: "2017", cover: "wae-glimmer-2017.jpg", credit: "M", link: "", bandcamp: "a3396024367" },
   { artist: "Heliotropes", title: "Over There That Way", year: "2016", cover: "heliotropes-over-there-that-way-2016.jpg", credit: "D", link: "" },
   { artist: "Heroes Of Toolik", title: "Like Night", year: "2016", cover: "heroes-of-toolik-like-night-2016.jpg", credit: "R", link: "", bandcamp: "a4237116864" },
   { artist: "Very Fresh", title: "Hey, It's Me!", year: "2016", cover: "very-fresh-hey-it-s-me-2016.jpg", credit: "D", link: "", bandcamp: "a2392058019" },
