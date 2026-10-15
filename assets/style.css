@@ -65,13 +65,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 56px 0; }
 
 /* ============ Home hero: photo / Buy Music Club / photo ============ */
 .hero {
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; align-items: center;
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; align-items: center;
+  max-width: 940px; margin: 0 auto;
 }
 .circle {
   aspect-ratio: 1; width: 100%; border-radius: 50%;
   object-fit: cover; background: #dfe6e2;
 }
-.embed iframe { width: 100%; border: 0; height: 420px; display: block; }
+.embed iframe { width: 100%; border: 0; height: 380px; display: block; }
 
 /* ============ Photos ============ */
 .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
