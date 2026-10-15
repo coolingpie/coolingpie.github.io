@@ -79,8 +79,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 56px 0; }
   display: grid; gap: 28px 24px;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
 }
+.records { align-items: start; }
 .record {
-  display: block; text-decoration: none; color: var(--text);
+  display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch;
+  text-decoration: none; color: var(--text);
   font: inherit; text-align: left; background: none; border: 0; padding: 0; width: 100%;
 }
 .record > span { display: block; }
