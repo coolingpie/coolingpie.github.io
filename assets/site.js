@@ -22,7 +22,7 @@ const FOOTER_LINKS = [
 (function () {
   const here = location.pathname.replace(/index\.html$/, "");
   const isCurrent = (href) =>
-    href === "/" ? here === "/" : here.startsWith(href.replace(/index\.html$/, ""));
+    href === "/" ? (here === "/" || here.startsWith("/album")) : here.startsWith(href.replace(/index\.html$/, ""));
 
   const header = document.getElementById("site-header");
   if (header) {

@@ -132,3 +132,36 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 56px 0; }
   .logo { width: 200px; }
   .records { grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
 }
+
+/* ============ Album pages ============ */
+.record .role { margin: 2px 0 0; font-size: .82rem; color: var(--accent); }
+.album-back { margin: 0 0 32px; font-size: .92rem; }
+.album-back a { text-decoration: none; }
+.album {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 48px; align-items: start;
+}
+.album-cover { width: 100%; aspect-ratio: 1; object-fit: cover; background: #eee; }
+.album-artist {
+  margin: 0; font-family: var(--head); font-weight: 700; font-size: .95rem;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+}
+.album-title { font-size: 2rem; text-transform: none; letter-spacing: 0; color: var(--text); margin: 4px 0 6px; }
+.album-meta { margin: 0 0 20px; color: var(--muted); }
+.album-role { font-weight: 500; color: var(--accent); font-size: 1.1rem; }
+.album-credits { font-size: .92rem; color: var(--muted); white-space: pre-line; }
+.album-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.button-outline { background: transparent; color: var(--accent); border: 2px solid var(--accent); padding: 8px 18px; }
+.button-outline:hover { background: var(--accent); color: #fff; opacity: 1; }
+.album-player { display: block; width: 100%; height: 352px; border: 0; border-radius: 12px; margin-top: 48px; }
+.album-nav {
+  display: flex; justify-content: space-between; gap: 16px;
+  margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: .92rem;
+}
+.album-nav a { text-decoration: none; }
+@media (max-width: 760px) {
+  .album { grid-template-columns: 1fr; gap: 24px; }
+  .album-cover { max-width: 420px; }
+  .album-title { font-size: 1.6rem; }
+  .album-nav { flex-direction: column; }
+}
