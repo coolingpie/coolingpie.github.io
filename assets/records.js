@@ -20,7 +20,7 @@
 // ============================================================
 
 const RECORDS = [
-  { artist: "Lane", title: "Miranda", year: "2026", cover: "lane-miranda-2026.jpg", credit: "D", link: "", bandcamp: "t274936710" },
+  { artist: "Lane", title: "Miranda", year: "2026", cover: "lane-miranda-2026.jpg", credit: "M/D", link: "", bandcamp: "t274936710" },
   { artist: "2nd Grade", title: "Girls and Boys", year: "2026", cover: "2nd-grade-girls-and-boys-2026.jpg", credit: "M", link: "", bandcamp: "a1868775891" },
   { artist: "Remember Sports", title: "The Refrigerator", year: "2026", cover: "remember-sports-the-refrigerator-2026.jpg", credit: "P/R/M", link: "", bandcamp: "a526053519" },
   { artist: "youbet", title: "youbet", year: "2026", cover: "youbet-youbet-2026.jpg", credit: "P/R/M", link: "", bandcamp: "a1682366158" },
