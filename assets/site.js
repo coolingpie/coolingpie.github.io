@@ -4,7 +4,7 @@
 // ============================================================
 
 // One line under the logo on every page. Leave "" to hide it.
-const TAGLINE = "Producer · Mixer · Drummer · Composer";
+const TAGLINE = "";
 
 const NAV = [
   { label: "Discography", href: "/" },

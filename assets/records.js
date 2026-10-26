@@ -4,7 +4,7 @@
 //
 // Required:
 //   artist, title, year
-//   cover:    image filename in images/covers/
+//   cover:    image filename in images/covers/ (or a full image URL)
 //
 // Optional:
 //   credit:   your role codes, shown after the title, e.g. "P/R/M"
@@ -20,6 +20,7 @@
 // ============================================================
 
 const RECORDS = [
+  { artist: "Lane", title: "Miranda", year: "2026", cover: "lane-miranda-2026.jpg", credit: "D", link: "", bandcamp: "t274936710" },
   { artist: "2nd Grade", title: "Girls and Boys", year: "2026", cover: "2nd-grade-girls-and-boys-2026.jpg", credit: "M", link: "", bandcamp: "a1868775891" },
   { artist: "Remember Sports", title: "The Refrigerator", year: "2026", cover: "remember-sports-the-refrigerator-2026.jpg", credit: "P/R/M", link: "", bandcamp: "a526053519" },
   { artist: "youbet", title: "youbet", year: "2026", cover: "youbet-youbet-2026.jpg", credit: "P/R/M", link: "", bandcamp: "a1682366158" },
@@ -244,7 +245,7 @@ const RECORDS = [
     return `
     <${tag} class="record${r.bandcamp ? " playable" : ""}"${attrs}>
       <span class="cover-wrap">
-        <img src="/images/covers/${esc(r.cover)}" alt="${esc(r.artist)}, ${esc(r.title)}" loading="lazy">
+        <img src="${/^https?:/.test(r.cover) ? esc(r.cover) : "/images/covers/" + esc(r.cover)}" alt="${esc(r.artist)}, ${esc(r.title)}" loading="lazy">
         ${r.bandcamp ? '<span class="play-badge" aria-hidden="true"></span>' : ""}
       </span>
       <span class="artist">${esc(r.artist)}</span>
