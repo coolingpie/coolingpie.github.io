@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Composition | Julian Fader</title>
-<meta name="description" content="Original music for ads and film by Julian Fader, including spots for Ford, DoorDash, Arm & Hammer and Capital Group.">
+<meta name="description" content="Original music for commercials and film by Julian Fader, including spots for Ford, DoorDash, Arm &amp; Hammer and Capital Group, and the short films A Film About My Father and The Scout.">
 <link rel="canonical" href="https://julianfader.space/composition.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Julian Fader">
 <meta property="og:title" content="Composition | Julian Fader">
-<meta property="og:description" content="Original music for ads and film by Julian Fader, including spots for Ford, DoorDash, Arm & Hammer and Capital Group.">
+<meta property="og:description" content="Original music for commercials and film by Julian Fader, including spots for Ford, DoorDash, Arm &amp; Hammer and Capital Group.">
 <meta property="og:url" content="https://julianfader.space/composition.html">
-<meta property="og:image" content="https://julianfader.space/images/studio-left.jpg">
+<meta property="og:image" content="https://julianfader.space/images/posters/ford-dust-and-dreams.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,37 +23,152 @@
 <header id="site-header"></header>
 <main>
 
-  <div class="narrow">
-    <h1>Composition</h1>
-    <p class="lede">A carefully curated collection of some of my favorite pieces that I have composed over the years for various films and commercials!</p>
+  <section class="comp">
+    <header class="comp-intro">
+      <h1>Composition</h1>
+    </header>
 
-    <!-- Videos live in the videos/ folder. To use YouTube or Vimeo instead, swap a <video> for:
-         <iframe class="video" src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe> -->
-    <div class="videos">
-      <figure>
-        <video class="video" controls preload="metadata" src="/videos/ford-dust-and-dreams.mp4"></video>
-        <figcaption class="video-caption">Ford - &ldquo;Dust &amp; Dreams&rdquo;</figcaption>
+    <!--
+      HOW TO ADD A PIECE
+      Copy one <figure class="clip"> block and change:
+        data-src    = the video file in /videos/   (for a file you host)
+        data-yt     = the YouTube video ID          (for a YouTube video, instead of data-src)
+        <img src>   = a still in /images/posters/   (YouTube ones can use the thumbnail link pattern below)
+        <h3>        = brand or film, then the spot title
+        <p class="clip-meta"> = your role, agency/director, year. Separate with &middot;
+    -->
+
+    <!-- Featured piece: shown big at the top -->
+    <figure class="clip clip-featured">
+      <button class="clip-play" type="button" data-src="/videos/ford-dust-and-dreams.mp4" aria-label="Play Ford, Dust &amp; Dreams">
+        <img src="/images/posters/ford-dust-and-dreams.jpg" alt="" width="1280" height="720">
+        <span class="clip-badge" aria-hidden="true"></span>
+      </button>
+      <figcaption>
+        <h3>Ford <span class="clip-title">&ldquo;Dust &amp; Dreams&rdquo;</span></h3>
+        <p class="clip-meta">Original music</p>
+      </figcaption>
+    </figure>
+
+    <h2 class="comp-head">Commercials</h2>
+    <div class="clip-grid clip-grid-3">
+      <figure class="clip">
+        <button class="clip-play" type="button" data-src="/videos/doordash-big-strut.mp4" aria-label="Play DoorDash, Big Strut">
+          <img src="/images/posters/doordash-big-strut.jpg" alt="" width="1280" height="720" loading="lazy">
+          <span class="clip-badge" aria-hidden="true"></span>
+        </button>
+        <figcaption>
+          <h3>DoorDash <span class="clip-title">&ldquo;Big Strut&rdquo;</span></h3>
+          <p class="clip-meta">Original music</p>
+        </figcaption>
       </figure>
-      <figure>
-        <video class="video" controls preload="metadata" src="/videos/arm-and-hammer-walking-the-cat.mp4"></video>
-        <figcaption class="video-caption">Arm &amp; Hammer - &ldquo;Walking The Cat&rdquo;</figcaption>
+      <figure class="clip">
+        <button class="clip-play" type="button" data-src="/videos/capital-group-one.mp4" aria-label="Play Capital Group, One">
+          <img src="/images/posters/capital-group-one.jpg" alt="" width="1280" height="720" loading="lazy">
+          <span class="clip-badge" aria-hidden="true"></span>
+        </button>
+        <figcaption>
+          <h3>Capital Group <span class="clip-title">&ldquo;One&rdquo;</span></h3>
+          <p class="clip-meta">Original music</p>
+        </figcaption>
       </figure>
-      <figure>
-        <video class="video" controls preload="metadata" src="/videos/the-scout.mp4"></video>
-        <figcaption class="video-caption">The Scout (film)</figcaption>
+      <figure class="clip">
+        <button class="clip-play" type="button" data-src="/videos/arm-and-hammer-walking-the-cat.mp4" aria-label="Play Arm &amp; Hammer, Walking The Cat">
+          <img src="/images/posters/arm-and-hammer-walking-the-cat.jpg" alt="" width="1280" height="720" loading="lazy">
+          <span class="clip-badge" aria-hidden="true"></span>
+        </button>
+        <figcaption>
+          <h3>Arm &amp; Hammer <span class="clip-title">&ldquo;Walking The Cat&rdquo;</span></h3>
+          <p class="clip-meta">Original music</p>
+        </figcaption>
       </figure>
-      <figure>
-        <video class="video" controls preload="metadata" src="/videos/capital-group-one.mp4"></video>
-        <figcaption class="video-caption">Capital Group - &ldquo;One&rdquo;</figcaption>
+    </div>
+
+    <h2 class="comp-head">Film</h2>
+    <div class="clip-grid">
+      <figure class="clip">
+        <button class="clip-play" type="button" data-yt="9YMSfeHZ67Y" aria-label="Play A Film About My Father">
+          <img src="https://i.ytimg.com/vi/9YMSfeHZ67Y/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy"
+               onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/9YMSfeHZ67Y/hqdefault.jpg'">
+          <span class="clip-badge" aria-hidden="true"></span>
+        </button>
+        <figcaption>
+          <h3>A Film About My Father <span class="clip-title">short film</span></h3>
+          <p class="clip-meta">Original score &middot; People Zoo &middot; starring Lauren LaVera</p>
+        </figcaption>
       </figure>
-      <figure>
-        <video class="video" controls preload="metadata" src="/videos/doordash-big-strut.mp4"></video>
-        <figcaption class="video-caption">DoorDash - &ldquo;Big Strut&rdquo;</figcaption>
+      <figure class="clip">
+        <button class="clip-play" type="button" data-src="/videos/the-scout.mp4" aria-label="Play The Scout">
+          <img src="/images/posters/the-scout.jpg" alt="" width="1280" height="720" loading="lazy">
+          <span class="clip-badge" aria-hidden="true"></span>
+        </button>
+        <figcaption>
+          <h3>The Scout <span class="clip-title">short film</span></h3>
+          <p class="clip-meta">Original score &middot; A 5th Floor film</p>
+        </figcaption>
       </figure>
+    </div>
+
+    <!--
+      AUDIO-ONLY WORK (optional)
+      To add score or library cues with no picture, paste a SoundCloud or Bandcamp playlist embed
+      where the comment is below, then delete the "hidden" word on the <section> line.
+    -->
+    <section class="comp-audio" hidden>
+      <h2 class="comp-head">More music</h2>
+      <div class="embed">
+        <!-- paste embed iframe here -->
+      </div>
+    </section>
+
+  </section>
+
+  <!-- Pop-up video player -->
+  <div class="video-modal" id="video-modal" hidden role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="video-box">
+      <button class="video-close" type="button" aria-label="Close">&times;</button>
+      <div class="video-frame" id="video-frame"></div>
     </div>
   </div>
 </main>
 <footer id="site-footer"></footer>
 <script src="/assets/site.js"></script>
+<script>
+  // Pop-up player for every .clip-play button
+  (function () {
+    const modal = document.getElementById("video-modal");
+    const frame = document.getElementById("video-frame");
+    let opener = null;
+
+    function open(btn) {
+      opener = btn;
+      if (btn.dataset.yt) {
+        frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + btn.dataset.yt +
+          '?autoplay=1&rel=0" title="' + btn.getAttribute("aria-label").replace(/^Play /, "") +
+          '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      } else {
+        const v = document.createElement("video");
+        v.src = btn.dataset.src;
+        v.controls = true; v.autoplay = true; v.playsInline = true;
+        v.poster = btn.querySelector("img").src;
+        frame.replaceChildren(v);
+      }
+      modal.hidden = false;
+      document.body.classList.add("modal-open");
+      modal.querySelector(".video-close").focus();
+    }
+    function close() {
+      frame.replaceChildren();
+      modal.hidden = true;
+      document.body.classList.remove("modal-open");
+      if (opener) opener.focus();
+    }
+
+    document.querySelectorAll(".clip-play").forEach(b => b.addEventListener("click", () => open(b)));
+    modal.querySelector(".video-close").addEventListener("click", close);
+    modal.addEventListener("click", e => { if (e.target === modal) close(); });
+    document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) close(); });
+  })();
+</script>
 </body>
 </html>
