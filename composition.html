@@ -170,15 +170,15 @@
     </figure>
 
     <!--
-      AUDIO-ONLY WORK (optional)
-      To add score or library cues with no picture, paste a SoundCloud or Bandcamp playlist embed
-      where the comment is below, then delete the "hidden" word on the <section> line.
+      PITCHES
+      Drop an MP3 in /audio/ and add its exact filename to the list in the script below.
+      The label comes from the filename: "Title (Style).mp3" shows Title, with Style in grey.
     -->
-    <section class="comp-audio" hidden>
-      <h2 class="comp-head">More music</h2>
-      <div class="embed">
-        <!-- paste embed iframe here -->
-      </div>
+    <section class="comp-audio">
+      <h2 class="comp-head">Pitches</h2>
+      <p class="clip-meta pitch-intro">Original music written for commercial and film pitches.</p>
+      <ol class="pitch-list" id="pitch-list"></ol>
+      <audio id="pitch-audio" preload="none"></audio>
     </section>
 
   </section>
@@ -228,6 +228,106 @@
     modal.querySelector(".video-close").addEventListener("click", close);
     modal.addEventListener("click", e => { if (e.target === modal) close(); });
     document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) close(); });
+  })();
+</script>
+<script>
+  // Pitch playlist. Add a filename here (exactly as it appears in /audio/) to add a track.
+  (function () {
+    const tracks = [
+      "A Landing Spot (Dreamy).mp3",
+      "Ace High (Spaghetti Western).mp3",
+      "All The Feels (Retro Soul).mp3",
+      "Aura (Tension).mp3",
+      "Balance (Percussive).mp3",
+      "Big Red (Truck Rock).mp3",
+      "Big Shot (Dramatic Sports).mp3",
+      "Blissed Out Color (Dreamy Indie).mp3",
+      "Booquet (Creepy Crawly Halloween).mp3",
+      "Boundless (Cinematic).mp3",
+      "Breath & Bond (Soundtrack).mp3",
+      "Bricked (Boombap).mp3",
+      "Bubble Bay (Quirky ).mp3",
+      "Bucket Of Boo (Creepy Crawly Halloween).mp3",
+      "Call Me Back (Retro Soul).mp3",
+      "Cheeks (80s Pop).mp3",
+      "Classy (Pop Soul)).mp3",
+      "Climb (Tension).mp3",
+      "Coming Home).mp3",
+      "Desert Drive (alt mix) (Hard Rock).mp3",
+      "Eminence (Ambient).mp3",
+      "Fast Fuel (Electronic).mp3",
+      "Funny Times (Retro 60s).mp3",
+      "Grip Eternal (Hard Rock).mp3",
+      "Gumdrops (Quirky Video Game).mp3",
+      "Hottest Sand (Latin Pop).mp3",
+      "Magical Thinking (Retro 80s).mp3",
+      "Midnight Tides (Acoustic Pop).mp3",
+      "Open Sleigh (Holiday).mp3",
+      "Penny Saved (Orchestral Pizzicato).mp3",
+      "Quiet Canyon (Spaghetti Western).mp3",
+      "Run Far (Driving Pop).mp3",
+      "Seek Wild (Ambient Acoustic).mp3",
+      "Smiling Strut (Rhythmic Acoustic Pop).mp3",
+      "Sugar Spinner (Retro 80s).mp3",
+      "Sunday Dream (Dreamy Indie).mp3",
+      "Whistling Wind (8 Bit Spaghetti Western).mp3",
+      "Wonder (Solo Piano Dramatique).mp3",
+      "You Got Me (Retro 60s Soul).mp3",
+    ];
+    const list = document.getElementById("pitch-list");
+    const audio = document.getElementById("pitch-audio");
+    const rows = [];
+    let cur = -1;
+    const fmt = t => isFinite(t) ? Math.floor(t / 60) + ":" + String(Math.floor(t % 60)).padStart(2, "0") : "";
+
+    tracks.forEach((file, i) => {
+      const name = file.replace(/\.mp3$/i, "").trim();
+      const m = name.match(/^(.*\S)\s*\(([^()]*)\)$/);
+      const title = m ? m[1] : name;
+      const style = m ? m[2].trim() : "";
+      const li = document.createElement("li");
+      li.className = "pitch";
+      li.innerHTML =
+        '<button class="pitch-play" type="button"><span class="pitch-icon" aria-hidden="true"></span>' +
+        '<span class="pitch-name"></span> <span class="pitch-style"></span></button>' +
+        '<span class="pitch-time"></span>' +
+        '<span class="pitch-bar" aria-hidden="true"><span class="pitch-fill"></span></span>';
+      li.querySelector(".pitch-name").textContent = title;
+      li.querySelector(".pitch-style").textContent = style;
+      const btn = li.querySelector(".pitch-play");
+      btn.setAttribute("aria-label", "Play " + title);
+      btn.addEventListener("click", () => toggle(i));
+      li.querySelector(".pitch-bar").addEventListener("click", e => {
+        if (i !== cur || !audio.duration) return;
+        const r = e.currentTarget.getBoundingClientRect();
+        audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
+      });
+      list.appendChild(li);
+      rows.push({ li, btn, title, src: "/audio/" + encodeURIComponent(file) });
+    });
+
+    function toggle(i) {
+      if (i === cur) { audio.paused ? audio.play() : audio.pause(); return; }
+      if (cur > -1) rows[cur].li.classList.remove("active", "playing");
+      cur = i;
+      rows[i].li.classList.add("active");
+      audio.src = rows[i].src;
+      audio.play();
+    }
+    function update() {
+      if (cur < 0) return;
+      const r = rows[cur];
+      r.li.querySelector(".pitch-fill").style.width = (audio.duration ? audio.currentTime / audio.duration * 100 : 0) + "%";
+      r.li.querySelector(".pitch-time").textContent = fmt(audio.currentTime) + (audio.duration ? " / " + fmt(audio.duration) : "");
+    }
+    audio.addEventListener("timeupdate", update);
+    audio.addEventListener("loadedmetadata", update);
+    audio.addEventListener("play", () => { rows[cur].li.classList.add("playing"); rows[cur].btn.setAttribute("aria-label", "Pause " + rows[cur].title); });
+    audio.addEventListener("pause", () => { rows[cur].li.classList.remove("playing"); rows[cur].btn.setAttribute("aria-label", "Play " + rows[cur].title); });
+    audio.addEventListener("ended", () => { if (cur < rows.length - 1) toggle(cur + 1); });
+
+    // Pause the playlist if a video gets opened
+    document.querySelectorAll(".clip-play").forEach(b => b.addEventListener("click", () => audio.pause()));
   })();
 </script>
 </body>
