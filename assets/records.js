@@ -20,7 +20,7 @@
 // ============================================================
 
 const RECORDS = [
-  { artist: "Palehound", title: "You Sing Like You're Joking", year: "2027", cover: "https://f4.bcbits.com/img/a0578247597_16.jpg", credit: "P/M/D", link: "", bandcamp: "a3305416350" },
+  { artist: "Palehound", title: "You Sing Like You're Joking", year: "2027", cover: "palehound-you-sing-like-youre-joking-2027.jpg", credit: "P/M/D", link: "", bandcamp: "a3305416350" },
   { artist: "Lane", title: "Miranda", year: "2026", cover: "lane-miranda-2026.jpg", credit: "M/D", link: "", bandcamp: "t274936710" },
   { artist: "2nd Grade", title: "Girls and Boys", year: "2026", cover: "2nd-grade-girls-and-boys-2026.jpg", credit: "M", link: "", bandcamp: "a1868775891" },
   { artist: "Remember Sports", title: "The Refrigerator", year: "2026", cover: "remember-sports-the-refrigerator-2026.jpg", credit: "P/R/M", link: "", bandcamp: "a526053519" },
