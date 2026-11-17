@@ -234,12 +234,10 @@ const RECORDS = [
 
 
 // ---- Nothing below here needs editing ----
-(function () {
-  const grid = document.getElementById("records");
-  if (!grid) return;
-  const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  grid.innerHTML = RECORDS.map((r, i) => {
+function recordsHTML() {
+  return RECORDS.map((r, i) => {
     let tag = "div", attrs = "";
     if (r.bandcamp) { tag = "button"; attrs = ` type="button" data-play="${i}" aria-label="Play ${esc(r.artist)}, ${esc(r.title)}"`; }
     else if (r.link) { tag = "a"; attrs = ` href="${esc(r.link)}" target="_blank" rel="noopener"`; }
@@ -253,6 +251,15 @@ const RECORDS = [
       <span class="title">${esc(r.title)} <span class="year">(${esc(r.year)})</span>${r.credit ? ` <span class="credit">(${esc(r.credit)})</span>` : ""}</span>
     </${tag}>`;
   }).join("");
+}
+
+if (typeof document !== "undefined") (function () {
+  const grid = document.getElementById("records");
+  if (!grid) return;
+
+  // When the site is published, build.js has already written the grid into the page.
+  // This fills it in when it hasn't (previewing on your own computer).
+  if (!grid.children.length) grid.innerHTML = recordsHTML();
 
   // Bandcamp pop-up player
   const modal = document.createElement("div");

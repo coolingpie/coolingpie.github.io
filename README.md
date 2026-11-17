@@ -1,34 +1,33 @@
 # julianfader.space
 
-Plain HTML site hosted on GitHub Pages. No build step: edit a file, commit, and it's live in about a minute.
+Plain HTML site hosted on GitHub Pages. Edit a file, commit, and it's live in a minute or two.
 
 ## What to edit
 
 | To change... | Edit |
 |---|---|
 | The record grid on the home page | `assets/records.js` |
-| Nav links, footer links, contact email in footer | `assets/site.js` |
+| Nav links and footer links | `assets/site.js` |
 | Colors and fonts | top of `assets/style.css` |
 | Page text | `composition.html`, `drums.html`, `me.html`, `free.html` |
+| Composition videos | `composition.html` (instructions are in a comment near the top) |
+| The "More Original Music" playlist | drop an MP3 in `audio/`, add its filename to the list near the bottom of `composition.html` |
 | Buy Music Club embed | `index.html` |
+| Browser tab icon | `images/favicon.png` |
 
-## Step 1: get your images and videos (do this before cancelling Squarespace)
+Album covers go in `images/covers/`, video stills in `images/posters/`, videos in `videos/`.
+Keep each file under 100 MB (GitHub's per-file limit). Anything bigger belongs on YouTube or Vimeo.
 
-In Terminal, run:
+## How publishing works
 
-    bash ~/Downloads/julianfader.space/get-images.sh
+Every commit to `main` runs `build.js` on GitHub, which copies the site and writes the header,
+footer and record grid straight into each page. That way search engines and link previews can
+read your credits without running any JavaScript. You never need to run it yourself.
 
-That downloads your logo, photos and all 66 album covers into `images/`.
+If something goes wrong (say, a typo in `records.js`), the build fails, GitHub emails you, and the
+live site stays on the last version that worked. Details are under the repo's **Actions** tab.
 
-The four Composition videos are hosted by Squarespace and will disappear when you cancel.
-Save them with (needs `brew install ffmpeg` first):
-
-    bash get-videos.sh
-
-They land in `videos/` with the names the Composition page expects. Keep each under 100 MB
-(GitHub's per-file limit). If one is bigger, upload it to YouTube or Vimeo instead.
-
-Optional: add `images/favicon.png`, a small square icon for the browser tab.
+This needs **Settings > Pages > Source** set to **GitHub Actions**.
 
 ## Blog
 
@@ -38,3 +37,6 @@ The Blog link goes to Substack. Set the address in `assets/site.js`.
 
 Open Terminal in this folder and run `python3 -m http.server`, then visit http://localhost:8000.
 (Opening the HTML files directly by double-clicking won't load the styles, because links start with `/`.)
+
+The preview works without building: the pages fill in the header, footer and records themselves
+when they haven't been pre-built.
